@@ -12,6 +12,19 @@ var spotify = new Spotify(keys.spotify);
 //var command = ['concert-this', "spotify-this-song", "movie-this", "do-what-it-says"];
 var command = process.argv[2];
 var input  = process.argv.splice(3).join(' ');
+fs.appendFile("log.txt", input + command, function(err) {
+
+  // If an error was experienced we will log it.
+  if (err) {
+    console.log(err);
+  }
+
+  // If no error is experienced, we'll log the phrase "Content Added" to our node console.
+  else {
+    console.log("Content Added!");
+  }
+});
+
 
 //function to read which command
 function processCommand(){
@@ -41,6 +54,8 @@ function findSong(){
     if (err) {
       return console.log('Error occurred: ' + err);
     }
+
+  
    
   //console.log(data.tracks.items[0]); 
   console.log("Artist Name : " + data.tracks.items[0].artists.name)//WTF
