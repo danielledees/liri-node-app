@@ -27,6 +27,8 @@ if (command === "concert-this") {
 
 processCommand()
 
+//spotify-this function
+
 function findSong(){
  
 
@@ -41,19 +43,29 @@ function findSong(){
   });
 }
 
+//concert-this function
 
 function findConcert() {
 
  var query = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
  axios.get(query).then(function(res){
-  console.log(res.data[0].venue.city, "this is response from bandistown")
+  console.log("Venue name: " + res.data[0].venue.name)
+  console.log("Venue location: " + res.data[0].venue.city)
+  var date = moment(res.data[0].datetime).format("MM/DD/YYYY");
+  console.log("Date: " + date)
  });
 }
+
+
+//movie-this function
 
 function findMovie() {
   if(!input) {
     input = "Mr. Nobody"
   }
+
+
+
   
   var moviequery = "http://www.omdbapi.com/?t="+ input +"&y=&plot=short&apikey=trilogy";
   axios.get(moviequery).then(
@@ -63,6 +75,8 @@ function findMovie() {
   }
 );
 }
+
+//do-what-it-says function
 
 function simonSays() {
   var filePath = path.join(__dirname, 'random.txt')
