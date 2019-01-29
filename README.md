@@ -20,6 +20,10 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 * spotify-this-sing: artist name, song name, preview link from spotify, album
 * movie-this: title, year, IMDB rating, Rotten Tomatoes Rating, country, language, plot and actors
 
+**Watch a Demo:**
+(file:///Users/danielledees/Downloads/632fd7b6-f5da-4d0e-y017-c22ea049ab22.webm)
+
+
 
 
 
