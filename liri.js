@@ -14,14 +14,12 @@ var command = process.argv[2];
 var input  = process.argv.splice(3).join(' ');
 fs.appendFile("log.txt", input + command, function(err) {
 
-  // If an error was experienced we will log it.
   if (err) {
-    console.log(err);
+    console.log("Search Not Saved" + err);
   }
 
-  // If no error is experienced, we'll log the phrase "Content Added" to our node console.
   else {
-    console.log("Content Added!");
+    console.log("Search Saved");
   }
 });
 
@@ -56,12 +54,13 @@ function findSong(){
     }
 
   
-   
+  console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
   //console.log(data.tracks.items[0]); 
-  console.log("Artist Name : " + data.tracks.items[0].artists.name)//WTF
+  console.log("Artist Name : " + data.tracks.items[0].artists[0].name)
   console.log("Song Name : " + data.tracks.items[0].name )
   console.log("Preview URL : " + data.tracks.items[0].preview_url)
   console.log("Album: " + data.tracks.items[0].album.name )
+  console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
   });
 }
 
@@ -71,10 +70,12 @@ function findConcert() {
 
  var query = "https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp"
  axios.get(query).then(function(res){
+  console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
   console.log("Venue name: " + res.data[0].venue.name)
   console.log("Venue location: " + res.data[0].venue.city)
   var date = moment(res.data[0].datetime).format("MM/DD/YYYY");
   console.log("Date: " + date)
+  console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
  });
 }
 
@@ -90,15 +91,17 @@ function findMovie() {
   var moviequery = "http://www.omdbapi.com/?t="+ input +"&y=&plot=short&apikey=trilogy";
   axios.get(moviequery).then(
   function(response) {
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     //console.log(response.data)
     console.log("Movie Title: " + response.data.Title);
     console.log("Year: " + response.data.Year);
-    console.log("The IMDB rating is: " + response.data.imdbRating);
-    console.log("The rotten tomato rating is: " + response.data.Ratings.Source);
+    console.log("IMDB rating is: " + response.data.imdbRating);
+    console.log("Rotten Tomato rating is: " + response.data.Ratings[1].Value);
     console.log("Country: " + response.data.Country);
     console.log("Language: " + response.data.Language);
     console.log("Plot: " + response.data.Plot);
     console.log("Actors: " + response.data.Actors);
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
   }
 );
 }

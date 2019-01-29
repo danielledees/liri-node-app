@@ -15,7 +15,7 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 * IMDB API
 * do what it says command searches from a random.txt file
 
-***Within the terminal/bash will return the following results:**
+**Within the terminal/bash will return the following results:**
 * concert-this: name of venue, venue location and date of the event (moment.js was used to format date to MM/DD/YYY)
 * spotify-this-sing: artist name, song name, preview link from spotify, album
 * movie-this: title, year, IMDB rating, Rotten Tomatoes Rating, country, language, plot and actors
