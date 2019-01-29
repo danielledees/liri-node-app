@@ -44,7 +44,7 @@ processCommand()
 function findSong(){
   //default response if a song title is not included
   if (!input) {
-    input = "Ace of Base"
+    input = "The Sign Ace of Base"
   }
  
 //searches for song title requested
