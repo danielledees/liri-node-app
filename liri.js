@@ -12,6 +12,7 @@ var spotify = new Spotify(keys.spotify);
 //var command = ['concert-this', "spotify-this-song", "movie-this", "do-what-it-says"];
 var command = process.argv[2];
 var input  = process.argv.splice(3).join(' ');
+
 fs.appendFile("log.txt", input + command, function(err) {
 
   if (err) {
